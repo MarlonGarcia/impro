@@ -2,7 +2,6 @@ import torch
 import cv2
 import os
 import imfun
-import matplotlib.pyplot as plt
 
 
 class midas():
