@@ -1,2 +1,1 @@
-# impro
-Image Processing Functions
+# Image Processing Functions (impro)
