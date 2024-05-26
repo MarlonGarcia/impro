@@ -28,10 +28,10 @@ class depth2contour():
             
             dim = np.shape(output)
             X, Y, Z = np.meshgrid(np.arange(dim[0]), np.arange(dim[1]), np.arange(dim[2]))
-            
+
             fig = plt.figure()
             ax = fig.add_subplot(111, projection='3d')
-            ax.scatter(X, Y, Z, c=output.reshape(-1), cmap='gray', marker='o', s=1)
+            ax.plot_surface(X, Y, Z, facecolors=output.reshape(-1), cmap='gray')
             ax.set_xlabel('X')
             
             break
