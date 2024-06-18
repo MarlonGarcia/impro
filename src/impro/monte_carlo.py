@@ -30,16 +30,18 @@ class depth2contour():
                 img = cv2.resize(img, (int(np.shape(img)[1]/div),
                                        int(np.shape(img)[0]/div)))
             
-            cube = []
-            for n in range(256, -1, -1):
-                temp = np.zeros(np.shape(img), 'uint8')
-                temp[img==n] = 1
-                cube.append(temp)
-            cube = np.stack(cube, axis=2)
-            cube[cube==1] = 255
-            if save:
-                with h5py.File(os.path.join(self.dir_output, name), 'w') as f:
-                    f.create_dataset('voxels', data=cube, compression='gzip')
+            if (output+save):
+                cube = []
+                for n in range(256, -1, -1):
+                    temp = np.zeros(np.shape(img), 'uint8')
+                    temp[img==n] = 1
+                    cube.append(temp)
+                cube = np.stack(cube, axis=2)
+                cube[cube==1] = 255
+                if save:
+                    with h5py.File(os.path.join(self.dir_output, name), 'w') as f:
+                        f.create_dataset('voxels', data=cube, compression='gzip')
+            
             if show:
                 xx, yy = np.meshgrid(np.arange(img.shape[1]), np.arange(img.shape[0]))
                 z = img.astype(float)

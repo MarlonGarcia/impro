@@ -9,7 +9,8 @@ class midas():
     '''
     The `midas` class is used for depth estimation using the MiDaS model.
     See MiDaS repository for more information: https://github.com/isl-org/MiDaS
-    This code was based on MiDaS hub in PyTorch: https://pytorch.org/hub/intelisl_midas_v2/
+    This code was based on MiDaS hub in PyTorch, that can be found here:
+    https://pytorch.org/hub/intelisl_midas_v2/
 
     Args:
         model_type (str): The type of MiDaS model to use.
