@@ -1,0 +1,16 @@
+LICENSE
+LICENSE.rst
+README.md
+pyproject.toml
+src/impro/__init__.py
+src/impro/depth.py
+src/impro/imfun1.py
+src/impro/intelligence.py
+src/impro/monte_carlo (antigo).py
+src/impro/monte_carlo.py
+src/impro.egg-info/PKG-INFO
+src/impro.egg-info/SOURCES.txt
+src/impro.egg-info/dependency_links.txt
+src/impro.egg-info/entry_points.txt
+src/impro.egg-info/requires.txt
+src/impro.egg-info/top_level.txt

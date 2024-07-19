@@ -1,0 +1,7 @@
+numpy
+opencv-contrib-python
+matplotlib
+imfun
+scikit-learn
+tqdm
+pillow_heif
