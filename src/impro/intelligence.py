@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 import cv2
-import imfun1 as imfun
+import imfun
 from sklearn.utils import shuffle
 from sklearn.ensemble import RandomForestClassifier
 from tqdm import tqdm
