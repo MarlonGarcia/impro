@@ -11,7 +11,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-class depth2contour():
+class depth2cube():
     
     def __init__(self, dir_input, dir_output):
         self.dir_input = dir_input
@@ -162,6 +162,6 @@ if __name__ == "__main__":
     # Choose a directory to save predicted images
     dir_output = r'C:\Users\marlo\Downloads\MiDas\2024.05.24 - Testes Iniciais\hypercubes'
     
-    d2c = depth2contour(dir_input, dir_output)
+    d2c = depth2cube(dir_input, dir_output)
     
     d2c.main(div=3, show='3D', save=False)
