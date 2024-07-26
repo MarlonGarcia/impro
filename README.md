@@ -1,5 +1,6 @@
 # Image Processing Functions (impro)
 
+This library is dedicated to image processing functions, comprising Machine Learning algorithms in the Intelligence module, and light-tissue interactions simulations in the Monte Carlo module.
 
 ## Module of Intelligence
 
@@ -18,8 +19,6 @@ You can install using `pip`:
 ```
 pip install impro==0.0.0
 ```
-
-*OBS*: some functions use the 'pynput' and 'windsound' libraries, which may be difficult to install and do not works on non-windows platforms. Comment on these library imports if there are problems during installation or loading.
 
 - author: Marlon Rodrigues Garcia
 - contact: marlon.garcia@unesp.br
