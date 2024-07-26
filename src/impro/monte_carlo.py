@@ -46,7 +46,7 @@ class depth2cube():
 
             ## Dilating the cube
             # Define the structure for dilation
-            structure = np.ones((3, 3, 3))
+            structure = np.ones((1, 1, 1))
             # Apply binary dilation
             cube = binary_dilation(cube, structure=structure).astype('uint8')
             cube[cube==1] = 255
@@ -160,8 +160,8 @@ if __name__ == "__main__":
     # Choose a directory with the images to predicth depth
     dir_input = r'C:\Users\marlo\Downloads\MiDas\2024.05.24 - Testes Iniciais\depth images'
     # Choose a directory to save predicted images
-    dir_output = r'C:\Users\marlo\Downloads\MiDas\2024.05.24 - Testes Iniciais\hypercubes'
+    dir_output = r'C:\Users\marlo\Downloads\MiDas\2024.05.24 - Testes Iniciais\cubes'
     
     d2c = depth2cube(dir_input, dir_output)
     
-    d2c.main(div=3, show='3D', save=False)
+    cubes = d2c.main(div=3, show='3D', save=False)
