@@ -4,7 +4,6 @@ README.md
 pyproject.toml
 src/impro/__init__.py
 src/impro/depth.py
-src/impro/imfun1.py
 src/impro/intelligence.py
 src/impro/monte_carlo (antigo).py
 src/impro/monte_carlo.py

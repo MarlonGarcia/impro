@@ -20,7 +20,7 @@ classes = 3
 
 
 # Running the function
-report, confusion_matrix = intelligence.SuperLearning(
+results = intelligence.SuperLearning(
     models, train_dir, predict_dir, classes,label_names=label_names,
     show_images=True, scale_images=True, save_images=True
 )

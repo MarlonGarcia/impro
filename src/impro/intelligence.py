@@ -171,12 +171,14 @@ def SuperLearning(models, train_dir, predict_dir, classes, **kwargs):
 
 
 if __name__ == '__main__':
-    train_dir = r'C:\Users\marlo\My Drive\College\Biophotonics Lab\Research\Data\RGB Images\01) 25.06.20 - Erika\imagens'
-    predict_dir = r'C:\Users\marlo\My Drive\College\Biophotonics Lab\Research\Data\RGB Images\01) 25.06.20 - Erika\PDT_50mW_28_11_19_14B'
+    train_dir = r'C:\Users\marlo\iCloudDrive\Downloads\Deletar Posteriormente\Smaller Images JPG\train'
+    predict_dir = r'C:\Users\marlo\iCloudDrive\Downloads\Deletar Posteriormente\Smaller Images JPG\test'
     label_names = ['healthy', 'damaged', 'white']
     models = ['Random Forest']
     classes = 3
     
-    SuperLearning(models, train_dir, predict_dir, classes,
-                  label_names=label_names, show_images=True, scale_images=False)
+    results = SuperLearning(
+        models, train_dir, predict_dir, classes,label_names=label_names,
+        show_images=True, scale_images=True, save_images=True
+    )
 
