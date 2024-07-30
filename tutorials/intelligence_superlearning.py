@@ -2,10 +2,12 @@ from impro import intelligence
 
 
 # Enter here the directory of your training dataset
-train_dir = r'C:\Users\marlo\My Drive\College\Biophotonics Lab\Research\Data\RGB Images\01) 25.06.20 - Erika\imagens'
+train_dir = r'C:\Users\marlo\iCloudDrive\Downloads\Deletar Posteriormente\Smaller Images JPG\train'
+# train_dir = r'C:\Users\marlon.garcia\Downloads\Deletar Futuramente\Smaller Images JPG\train'
 
 # Enter here the directory of the data to be predicted
-predict_dir = r'C:\Users\marlo\My Drive\College\Biophotonics Lab\Research\Data\RGB Images\01) 25.06.20 - Erika\PDT_50mW_28_11_19_14B'
+predict_dir = r'C:\Users\marlo\iCloudDrive\Downloads\Deletar Posteriormente\Smaller Images JPG\test'
+# predict_dir = r'C:\Users\marlon.garcia\Downloads\Deletar Futuramente\Smaller Images JPG\test'
 
 # Naming the three classes to be predicted
 label_names = ['healthy', 'damaged', 'white']
@@ -18,7 +20,8 @@ classes = 3
 
 
 # Running the function
-intelligence.SuperLearning(models, train_dir, predict_dir, classes,
-                           label_names=label_names, show_images=True,
-                           scale_images=False)
+report, confusion_matrix = intelligence.SuperLearning(
+    models, train_dir, predict_dir, classes,label_names=label_names,
+    show_images=True, scale_images=True, save_images=True
+)
 

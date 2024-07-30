@@ -15,8 +15,10 @@ def SuperLearning(models, train_dir, predict_dir, classes, **kwargs):
     # Names of train_names have to be equal to names in label_names (img by img)
     # It does not classify images with label set to zero/0 (background)
     # Function leaves a background folder with all label images
+    # 'scale_images' is to scale output/classified images
     
     # Getting all the 'keyword arguments' entered by the user
+    save_images = kwargs.get('save_images')
     save_model = kwargs.get('save_model')
     trees = kwargs.get('trees', 100)
     label_dir = kwargs.get('label_dir')
@@ -55,6 +57,9 @@ def SuperLearning(models, train_dir, predict_dir, classes, **kwargs):
     train_class = np.concatenate(train_class, axis = 0)
     # Shuffling the data (important for model training)
     train_data, train_class = shuffle(train_data, train_class, random_state=42)
+    
+    # Starting the results dictionary
+    results = {}
     
     # Random Forest Model
     if 'random forest' in models:
@@ -112,7 +117,8 @@ def SuperLearning(models, train_dir, predict_dir, classes, **kwargs):
                 out_image = imfun.scale255(out_image)
             if cmap:
                 out_image = cv2.applyColorMap(out_image, cmap)
-            cv2.imwrite(name, out_image)
+            if save_images:
+                cv2.imwrite(name, out_image)
             if show_images:
                 plt.subplots()
                 if cmap:
@@ -123,17 +129,29 @@ def SuperLearning(models, train_dir, predict_dir, classes, **kwargs):
                 plt.tight_layout()
                 plt.show()
         
-        # Calculating the model metrics
+        # Calculating the metrics
         print('\n\nCalculating Model Metrics:\n\n')
-        test_label = imfun.im2label(predict_dir, classes, scale = False,
-                                    label_names=label_names, save_images=False)
+        # `im2label` will store the label images at `predict_dir +' labels'`
+        temp = imfun.im2label(predict_dir, classes, scale = False,
+                              label_names=label_names, save_images=True)
+        del temp
+        
+        # After storing the images, we will extract and prepare the data
         test_data = []
         test_class = []
-        for n, name in enumerate(predict_names):
+        for name in predict_names:
+            # Reading image in `predict_dir`
             test_image = cv2.imread(os.path.join(predict_dir, name))
+            path = os.path.join(os.path.dirname(predict_dir),
+                                os.path.basename(predict_dir) + ' labels')
+            # Reading image in `predict_dir+' labels'`
+            test_label = cv2.imread(os.path.join(path, name))
+            # Extracting data from each class to the data to be tested
             for label in range(1, classes+1):
-                test_data.append(test_image[test_label[n] == label])
+                # This will compare with label and store in a long, thin data
+                test_data.append(test_image[test_label[...,0] == label])
                 test_class.append(np.full(test_data[-1].shape[0], label))
+        # Concatenating each label of each image in a even longer, thinner data
         test_data = np.concatenate(test_data, axis = 0)
         test_class = np.concatenate(test_class, axis = 0)
         # Predicting the test dataset
@@ -145,7 +163,11 @@ def SuperLearning(models, train_dir, predict_dir, classes, **kwargs):
         # Confusion Matrix
         cm = confusion_matrix(test_class, test_out)
         print(f'\nConfusion Matrix:\n{cm}')
+        # Adding the results in a tupple
+        results['Random Forest'] = (report, cm)
         print('\n\n\n- - - - - - - - - - - - -\n\n\n')
+    
+    return results
 
 
 if __name__ == '__main__':
