@@ -9,6 +9,7 @@ from tqdm import tqdm
 import pickle
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
+import pandas as pd
 
 
 def SuperLearning(models, train_dir, predict_dir, classes, **kwargs):
@@ -18,7 +19,8 @@ def SuperLearning(models, train_dir, predict_dir, classes, **kwargs):
     # 'scale_images' is to scale output/classified images
     
     # Getting all the 'keyword arguments' entered by the user
-    save_images = kwargs.get('save_images')
+    save_images = kwargs.get('save_images', True)
+    save_results = kwargs.get('save_results', True)
     save_model = kwargs.get('save_model')
     trees = kwargs.get('trees', 100)
     label_dir = kwargs.get('label_dir')
@@ -165,6 +167,28 @@ def SuperLearning(models, train_dir, predict_dir, classes, **kwargs):
         print(f'\nConfusion Matrix:\n{cm}')
         # Adding the results in a tupple
         results['Random Forest'] = (report, cm)
+        # Saving results, if required
+        if save_results:
+            print('\n\nSaving Results...\n\n')
+            os.chdir(predict_dir)
+            try:
+                os.mkdir('results')
+            except:
+                pass
+            os.chdir('results')
+            # Salvando o relatório de classificação e a matriz de confusão em um único arquivo TXT
+            with open('results_random_forest.txt', 'w') as f:
+                # Escrevendo o relatório de classificação
+                f.write("Relatório de Classificação:\n")
+                f.write(report)
+                
+                # Adicionando algumas linhas em branco
+                f.write("\n\n\n")
+                
+                # Escrevendo a matriz de confusão
+                f.write("Matriz de Confusão:\n")
+                df_cm = pd.DataFrame(cm)
+                df_cm.to_csv(f, index=False, sep='\t')
         print('\n\n\n- - - - - - - - - - - - -\n\n\n')
     
     return results

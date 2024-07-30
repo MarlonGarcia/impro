@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: impro
-Version: 0.0.2
+Version: 0.0.3
 Summary: Image Processing Functions
 Author-email: Marlon Rodrigues Garcia <marlon.garcia@unesp.br>
 License: MIT License
@@ -61,7 +61,7 @@ from impro import intelligence
 You can install using `pip`:
 
 ```
-pip install impro==0.0.2
+pip install impro==0.0.3
 ```
 
 - author: Marlon Rodrigues Garcia

@@ -17,7 +17,7 @@ from impro import intelligence
 You can install using `pip`:
 
 ```
-pip install impro==0.0.2
+pip install impro==0.0.3
 ```
 
 - author: Marlon Rodrigues Garcia
