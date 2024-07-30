@@ -195,9 +195,9 @@ def SuperLearning(models, train_dir, predict_dir, classes, **kwargs):
 
 
 if __name__ == '__main__':
-    train_dir = r'C:\Users\marlo\iCloudDrive\Downloads\Deletar Posteriormente\Smaller Images JPG\train'
-    predict_dir = r'C:\Users\marlo\iCloudDrive\Downloads\Deletar Posteriormente\Smaller Images JPG\test'
-    label_names = ['healthy', 'damaged', 'white']
+    train_dir = r'C:\Users\marlon.garcia\Downloads\Deletar Futuramente\Smaller Images JPG2\train'
+    predict_dir = r'C:\Users\marlon.garcia\Downloads\Deletar Futuramente\Smaller Images JPG2\test'
+    label_names = ['non-healthy', 'healthy', 'white']
     models = ['Random Forest']
     classes = 3
     
