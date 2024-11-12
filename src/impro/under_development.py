@@ -7,7 +7,6 @@ import pyvista as pv
 import napari
 from scipy.ndimage import binary_dilation
 import pmcx
-import numpy as np
 import matplotlib.pyplot as plt
 
 
@@ -92,67 +91,6 @@ class depth2cube():
 # Documentar melhor o 'esc' na função
 
 # Segmentar uma função somente para imprimir 2D depth 2 contorno (show='2D')
-
-
-
-def mcx_run(**kwargs):
-    
-    # First, creating the configuration file
-    show_image = kwargs.get('show_image', True)
-    save_folder = kwargs.get('save_folder', False)
-    
-    cfg={}
-    
-    cfg['nphoton'] = kwargs.get('nphoton', 1e6)
-    cfg['vol'] = kwargs.get('vol', np.ones([60,60,60], dtype='uint8'))
-    cfg['tstart'] = kwargs.get('tstart', 0)
-    cfg['tend'] = kwargs.get('tend', 5e-9)
-    cfg['tstep'] = kwargs.get('tstep', 5e-9)
-    cfg['srcpos'] = kwargs.get('srcpos', [30, 30, 0])
-    cfg['srcdir'] = kwargs.get('srcdir', [0, 0, 1])
-    
-    # The properties are in the shape [mua, mus, g, n]
-    prop_back = kwargs.get('prop_back', [0, 0, 1, 1])
-    cfg['prop'] = kwargs.get('prop', False)
-    
-    
-    if not cfg['prop']:
-        cfg['prop'] = prop_back
-        
-    
-    
-    cfg['prop'] = [
-        [0, 0, 1, 1],
-        [0.005, 1, 0.01, 1.37]]
-    
-    # First, verifying if there is GPU
-    try:
-        pmcx.gpuinfo()
-    except:
-        pass
-    
-    # Actually running the simulation
-    res=pmcx.run(cfg)
-    print('\n\nres= ', print(type(res)), print(res))
-    res.keys()
-    print('\n\nres= ', print(type(res)), print(res))
-    # Acquiring the flux
-    res['flux'].shape
-    
-    if show_image:
-        plt.subplots()
-        plt.imshow(np.log10(res['flux'][30,:,:]))
-        plt.title('Logarithm of the Radiant Flux in base 10')
-        plt.colorbar()
-        plt.tight_layout()
-        plt.show()
-    
-    if save_folder:
-        os.chdir(save_folder)
-        image = np.log10(res['flux'][30,:,:])
-        cv2.imwrite('image.png', image)
-        
-
 
 
 

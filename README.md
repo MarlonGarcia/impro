@@ -17,8 +17,16 @@ from impro import intelligence
 You can install using `pip`:
 
 ```
-pip install impro==0.0.3
+pip install impro==0.0.4
 ```
+
+If you have a previous version of impro installed, it is a good practice to uninstall it first
+```
+pip uninstall impro
+pip install impro==0.0.4
+```
+
+
 
 - author: Marlon Rodrigues Garcia
 - contact: marlon.garcia@unesp.br

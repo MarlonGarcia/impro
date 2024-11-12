@@ -1,0 +1,93 @@
+Metadata-Version: 2.1
+Name: impro
+Version: 0.0.4
+Summary: Image Processing Functions
+Author-email: Marlon Rodrigues Garcia <marlon.garcia@unesp.br>
+License: MIT License
+        
+        Copyright (c) 2024 Marlon Rodrigues Garcia
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/MarlonGarcia/impro
+Keywords: image processing,digital image,image functions
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+License-File: LICENSE.rst
+Requires-Dist: numpy
+Requires-Dist: opencv-contrib-python
+Requires-Dist: matplotlib
+Requires-Dist: imfun
+Requires-Dist: scikit-learn
+Requires-Dist: tqdm
+Requires-Dist: pillow_heif
+Requires-Dist: pmcx
+
+# Image Processing Functions (impro)
+
+This library is dedicated to image processing functions, comprising Machine Learning algorithms in the Intelligence module, and light-tissue interactions simulations in the Monte Carlo module.
+
+## Module of Intelligence
+
+With this module you can train and test Machine Learning algorithms, like Random Forest
+
+Use the following code to import this module after install this package:
+```
+from impro import intelligence
+```
+
+
+## How to Install
+
+You can install using `pip`:
+
+```
+pip install impro==0.0.4
+```
+
+If you have a previous version of impro installed, it is a good practice to uninstall it first
+```
+pip uninstall impro
+pip install impro==0.0.4
+```
+
+
+
+- author: Marlon Rodrigues Garcia
+- contact: marlon.garcia@unesp.br
+- institution: Sao Paulo State University (Unesp)
+
+
+### Scientific Research
+
+This work is the product of the research being conducted at two universities in Brazil:
+
+#### Sao Paulo State University (Unesp)
+- Dept. of Electronic and Telecommunication Engineering
+- School of Engineering, Campus of Sao Joao da Boa Vista
+- website: https://www.sjbv.unesp.br/
+
+#### University of São Paulo (USP)
+- Biophotonics Laboratory, Optics Group (GO)
+- São Carlos Institute of Physics (IFSC)
+- website: https://www2.ifsc.usp.br/english/
